@@ -1,0 +1,6 @@
+.idea/
+*.ipynb_checkpoints/
+BIG_IMG.png
+fileName.png
+function.eps
+temp/
