@@ -1,0 +1,19 @@
+height_line : 14
+width_block_min : 5
+
+n_clusters : 25
+n_iters: 1
+
+
+gauss_kernel_size : 5
+morphology_opening_kernel_size: 5
+
+freq_polinom_degree : 3
+freq_min : 4.5
+freq_max : 40
+min_amplitude : 1
+
+margin: .4
+linewidth : .15
+
+save_intermediate_results: true
