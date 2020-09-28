@@ -1,7 +1,7 @@
 height_line : 14
 width_block_min : 5
 
-n_clusters : 25
+n_clusters : 40
 n_iters: 1
 
 
@@ -15,5 +15,3 @@ min_amplitude : 1
 
 margin: .4
 linewidth : .15
-
-save_intermediate_results: true

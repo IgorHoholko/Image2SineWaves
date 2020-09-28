@@ -4,3 +4,6 @@ BIG_IMG.png
 fileName.png
 function.eps
 temp/
+*__pycache__
+
+output

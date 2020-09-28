@@ -1,6 +1,7 @@
 import numpy as np
 import cv2
 from sklearn.cluster import KMeans
+from collections import defaultdict
 
 
 def split_imgs2segments(img, n_clusters, n_iter):
@@ -9,12 +10,36 @@ def split_imgs2segments(img, n_clusters, n_iter):
     clusters = kmeans_model.fit_predict(flat_img[..., np.newaxis])
 
     img_segmented = clusters.reshape(img.shape)
-    intensity = kmeans_model.cluster_centers_
+    intensity = kmeans_model.cluster_centers_.flatten()
+
+
+    # intensity_sorted_idxs = intensity.argsort()
+    # intensity = intensity[intensity_sorted_idxs]
+    # print(intensity)
+    # print(intensity_sorted_idxs)
+    #
+    # image_sorted = np.zeros_like(img_segmented)
+    # for i, class_new in enumerate(intensity_sorted_idxs):
+    #     image_sorted[np.where(img_segmented == i)] = class_new
+
     return img_segmented, intensity
 
 
-def fuse_classes(img, ):
-    pass
+def fuse_classes(img, map_intens):
+    # print(f"Number of classes BEFORE fusion: {len(np.unique(img))}")
+    # freq_dict = defaultdict(list)
+    # # find classes with same freq.
+    # for class_, line in map_intens.items():
+    #     freq_dict[line['freq']].append(class_)
+    #
+    # # fuse classes:
+    # for classes_same in freq_dict.values():
+    #     if len(classes_same) == 1:
+    #         continue
+    #     for class_ in classes_same[1:]:
+    #         img[np.where(img == class_)] = classes_same[0]
+    # print(f"Number of classes AFTER fusion: {len(np.unique(img))}")
+    return img
 
 
 def apply_morphology(img, kernel):
